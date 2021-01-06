@@ -57,3 +57,4 @@ if __name__ == "__main__":
     print(total_profit)
     for day, price in save_price.items():
         print('{} {}'.format(day, price))
+asd
