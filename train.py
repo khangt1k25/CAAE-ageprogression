@@ -4,7 +4,7 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 from torch.utils.data import Dataloader
 from torchvision.utils import save_image
-from datasets import UTK_dataset
+from datasets import UTK_dataset, UTK_transforms
 from model import Encoder, DiscriminatorX, DiscriminatorZ,  Generator
 from trainer import Trainer
 
@@ -24,8 +24,8 @@ if __name__ == '__main__':
     
 
 
-    dataset = UTK_dataset('./compress/train_utk.pkl')
-    dataloader = Dataloader(dataset, batch_size=batch_size)
+    dataset = UTK_dataset('./compress/train_utk.pkl', UTK_transforms)
+    dataloader = torch.utils.data.Dataloader(dataset, batch_size=batch_size)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

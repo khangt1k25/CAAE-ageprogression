@@ -105,6 +105,22 @@ class Trainer():
         except:
             print("Fail to save")
 
+    def load(self, epoch):
+        try:
+            path = "./checkpoint/model"+str(epoch)+".pt"
+            checkpoint = torch.load(path)
+      
+            self.generator.load_state_dict(checkpoint['G_state_dict'])
+            self.encoder.load_state_dict(checkpoint['E_state_dict'])
+            self.discriminatorX.load_state_dict(checkpoint['Dx_state_dict'])
+            self.discriminatorZ.load_state_dict(checkpoint['Dz_state_dict'])
+            self.optimizer_Dx.load_state_dict(checkpoint['optimizerDx_state_dict'])
+            self.optimizer_Dz.load_state_dict(checkpoint['optimizerDz_state_dict'])
+            self.optimizer_EG.load_state_dict(checkpoint['optimizerEG_state_dict'])
+
+            print("Load successful at epoch " +str(epoch))
+        except:
+            print("Fail to load")
 
 
 
