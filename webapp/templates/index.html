@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Age Progression</h2>
+
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Browse image
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+        <input type="text" name="e_age">
+        <input type="submit" >
+    </form>
+
+</div>
+
+{% endblock %}
